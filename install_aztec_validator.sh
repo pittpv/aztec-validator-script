@@ -170,5 +170,7 @@ echo -e "${GREEN}Cron задача добавлена:${NC} $CRON_JOB"
 echo -e "${YELLOW}⚠️ Скрипт будет выполняться каждый день в 23:49 CEST.${NC}"
 
 echo -e "${YELLOW}--- Шаг 5: Тестовый запуск через 10 секунд ---${NC}"
-timeout 10
+
+sleep 10
+
 "$SCRIPT_PATH"
