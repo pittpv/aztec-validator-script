@@ -7,11 +7,11 @@ NC='\033[0m' # No Color
 
 echo -e "${YELLOW}--- Шаг 1: Введите параметры подключения ---${NC}"
 
-read -rp "$(echo -e "${YELLOW}Введите ETHEREUM_HOSTS: ${NC}")" ETHEREUM_HOSTS
-read -rp "$(echo -e "${YELLOW}Введите RPC_URL: ${NC}")" RPC_URL
-read -rp "$(echo -e "${YELLOW}Введите VALIDATOR_PRIVATE_KEY (без '0x'): ${NC}")" VALIDATOR_PRIVATE_KEY
-read -rp "$(echo -e "${YELLOW}Введите ATTESTER (ваш EOA адрес): ${NC}")" ATTESTER
-read -rp "$(echo -e "${YELLOW}Введите PROPOSER_EOA (ваш EOA адрес): ${NC}")" PROPOSER_EOA
+read -rp "$(echo -e "${YELLOW}Введите ETHEREUM_HOSTS (e.g. https://eth-sepolia.g.alchemy.com/v2/...): ${NC}")" ETHEREUM_HOSTS
+read -rp "$(echo -e "${YELLOW}Введите RPC_URL (e.g. https://eth-sepolia.g.alchemy.com/v2/...): ${NC}")" RPC_URL
+read -rp "$(echo -e "${YELLOW}Введите VALIDATOR_PRIVATE_KEY (приватный ключ без '0x'): ${NC}")" VALIDATOR_PRIVATE_KEY
+read -rp "$(echo -e "${YELLOW}Введите ATTESTER (адрес кошелька): ${NC}")" ATTESTER
+read -rp "$(echo -e "${YELLOW}Введите PROPOSER_EOA (адрес кошелька): ${NC}")" PROPOSER_EOA
 read -rp "$(echo -e "${YELLOW}Введите TELEGRAM_BOT_TOKEN: ${NC}")" TELEGRAM_BOT_TOKEN
 read -rp "$(echo -e "${YELLOW}Введите TELEGRAM_USER_ID: ${NC}")" TELEGRAM_USER_ID
 
@@ -163,7 +163,7 @@ echo -e "${GREEN}Скрипт создан и сделан исполняемы�
 
 echo -e "${YELLOW}--- Шаг 4: Добавление cron-задачи ---${NC}"
 
-CRON_JOB="*/2 * * * * $SCRIPT_PATH >> $LOG_FILE 2>&1"
+CRON_JOB="49 23 * * * $SCRIPT_PATH >> $LOG_FILE 2>&1"
 ( crontab -l 2>/dev/null | grep -v "$SCRIPT_PATH"; echo "$CRON_JOB" ) | crontab -
 
 echo -e "${GREEN}Cron задача добавлена:${NC} $CRON_JOB"
